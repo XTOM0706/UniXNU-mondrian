@@ -25,6 +25,19 @@
 		reg = <0x0 0x80000000 0x3 0x0>;
 	};
 
+
+	/*
+	 * Panel contract from the hackios port: CoreAnimation takes its canvas from
+	 * the mode the display publishes, and a canvas that is not the panel's own
+	 * 1440 x 3200 grid makes WindowServer's BoundingPathBitmap assert.
+	 */
+	disp0 {
+		compatible = "sweet,display";
+		device_type = "display-subsystem";
+		unixnu,adt-name = "disp0";
+		canvas-width = <1440>;
+		canvas-height = <3200>;
+	};
 	/*
 	 * SM8475 UFS host (NativeUfs.cpp window checks: NativeUfs.cpp kUfsHost /
 	 * kGccUfsPage / SMMU constants, pong,ufs-* / pong,smmu-* properties are

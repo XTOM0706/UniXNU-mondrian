@@ -21,6 +21,11 @@ patch_series = ["device:patches/xnu/series"]
 archives = ["component:ArmDTPlatform", "component:ArmCpu", "component:PongUfs"]
 driver_records = "DEVELOPMENT_ARM64_PONG"
 
+[adt.chosen.u32]
+# MobileGestalt's screen class: scale 0 makes SpringBoard's FBSDisplayMode
+# "infxinf@0x" invalid, so the lock screen never lays out.
+display-scale = 3
+
 [userdata]
 first_lba = 53342976
 last_lba = 61731583
